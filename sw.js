@@ -1,6 +1,6 @@
 // Service worker: lets the app open offline after the first visit.
-// To release an update, change VERSION (e.g. "p90-v2") and upload the new files.
-const VERSION = "p90-v1";
+// To release an update, change VERSION (e.g. "p90-v5") and upload the new files.
+const VERSION = "p90-v4";
 const SHELL = [
   "./",
   "./index.html",
