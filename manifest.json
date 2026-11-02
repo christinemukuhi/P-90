@@ -1,0 +1,17 @@
+{
+  "name": "Your Puppy’s First 90 Days",
+  "short_name": "Puppy 90 Days",
+  "description": "A calmer start, one day at a time. Your puppy planner, roadmap, logs and memories.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fcf1e8",
+  "theme_color": "#fcf1e8",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
