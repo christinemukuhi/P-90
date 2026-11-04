@@ -1,6 +1,6 @@
 // Service worker: lets the app open offline after the first visit.
-// To release an update, change VERSION (e.g. "p90-v9") and upload the new files.
-const VERSION = "p90-v8";
+// To release an update, change VERSION (e.g. "p90-v10") and upload the new files.
+const VERSION = "p90-v9";
 const SHELL = [
   "./",
   "./index.html",
@@ -13,7 +13,7 @@ const SHELL = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: "reload" })))).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
@@ -31,7 +31,7 @@ self.addEventListener("fetch", (e) => {
   // Pages: try the network first so updates show up, fall back to the saved copy offline.
   if (req.mode === "navigate") {
     e.respondWith(
-      fetch(req)
+      fetch(req, { cache: "no-cache" })
         .then((res) => {
           const copy = res.clone();
           caches.open(VERSION).then((c) => c.put("./index.html", copy));
